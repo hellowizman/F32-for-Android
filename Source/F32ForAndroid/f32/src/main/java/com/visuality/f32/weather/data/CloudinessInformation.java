@@ -4,7 +4,7 @@ package com.visuality.f32.weather.data;
  * Created by igormatyushkin on 15.04.17.
  */
 
-public class CloudsInformation {
+public class CloudinessInformation {
 
     private double cloudinessPercentage;
 
@@ -12,7 +12,7 @@ public class CloudsInformation {
         return cloudinessPercentage;
     }
 
-    public CloudsInformation(
+    public CloudinessInformation(
             double cloudinessPercentage
     ) {
         super();
@@ -33,8 +33,8 @@ public class CloudsInformation {
             return this;
         }
 
-        public CloudsInformation build() {
-            return new CloudsInformation(
+        public CloudinessInformation build() {
+            return new CloudinessInformation(
                     this.cloudinessPercentage
             );
         }
