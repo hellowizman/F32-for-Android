@@ -1,10 +1,54 @@
-package com.visuality.f32.weather.data;
+package com.visuality.f32.weather.data.entity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by igormatyushkin on 15.04.17.
  */
 
-public class WindInformation {
+public class WindInformation extends BaseEntity {
+
+    public static WindInformation fromJson(JSONObject jsonObject) {
+        /**
+         * Obtain speed.
+         */
+
+        double speed = 0.0;
+
+        try {
+            speed = jsonObject.getJSONObject("wind")
+                    .getDouble("speed");
+        } catch (JSONException exception) {
+        }
+
+        /**
+         * Obtain direction.
+         */
+
+        double direction = 0.0;
+
+        try {
+            direction = jsonObject.getJSONObject("wind")
+                    .getDouble("deg");
+        } catch (JSONException exception) {
+        }
+
+        /**
+         * Obtain result object.
+         */
+
+        final WindInformation resultObject = new WindInformation.Builder()
+                .setSpeed(speed)
+                .setDirection(direction)
+                .build();
+
+        /**
+         * Return result.
+         */
+
+        return resultObject;
+    }
 
     private double speed;
 

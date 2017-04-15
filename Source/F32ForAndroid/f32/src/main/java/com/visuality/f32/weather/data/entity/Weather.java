@@ -1,10 +1,89 @@
-package com.visuality.f32.weather.data;
+package com.visuality.f32.weather.data.entity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by igormatyushkin on 15.04.17.
  */
 
-public class WeatherInformation {
+public class Weather extends BaseEntity {
+
+    public static Weather fromJson(JSONObject jsonObject) {
+        /**
+         * Obtain navigation information.
+         */
+
+        NavigationInformation navigationInformation = NavigationInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain temperature information.
+         */
+
+        TemperatureInformation temperatureInformation = TemperatureInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain light information.
+         */
+
+        LightInformation lightInformation = LightInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain wind information.
+         */
+
+        WindInformation windInformation = WindInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain cloudiness information.
+         */
+
+        CloudinessInformation cloudinessInformation = CloudinessInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain rain information.
+         */
+
+        RainInformation rainInformation = RainInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain snow information.
+         */
+
+        SnowInformation snowInformation = SnowInformation.fromJson(jsonObject);
+
+        /**
+         * Obtain weather timestamp.
+         */
+
+        long weatherTimestamp = 0;
+
+        try {
+            weatherTimestamp = jsonObject.getLong("dt");
+        } catch (JSONException exception) {
+        }
+
+        /**
+         * Obtain result object.
+         */
+
+        final Weather resultObject = new Weather.Builder()
+                .setNavigationInformation(navigationInformation)
+                .setTemperatureInformation(temperatureInformation)
+                .setLightInformation(lightInformation)
+                .setWindInformation(windInformation)
+                .setCloudinessInformation(cloudinessInformation)
+                .setRainInformation(rainInformation)
+                .setSnowInformation(snowInformation)
+                .setWeatherTimestamp(weatherTimestamp)
+                .build();
+
+        /**
+         * Return result.
+         */
+
+        return resultObject;
+    }
 
     private NavigationInformation navigationInformation;
 
@@ -54,7 +133,7 @@ public class WeatherInformation {
         return weatherTimestamp;
     }
 
-    public WeatherInformation(
+    public Weather(
             NavigationInformation navigationInformation,
             TemperatureInformation temperatureInformation,
             LightInformation lightInformation,
@@ -117,7 +196,7 @@ public class WeatherInformation {
 
         private CloudinessInformation cloudinessInformation;
 
-        public Builder getCloudinessInformation(CloudinessInformation cloudinessInformation) {
+        public Builder setCloudinessInformation(CloudinessInformation cloudinessInformation) {
             this.cloudinessInformation = cloudinessInformation;
             return this;
         }
@@ -143,8 +222,8 @@ public class WeatherInformation {
             return this;
         }
 
-        public WeatherInformation build() {
-            return new WeatherInformation(
+        public Weather build() {
+            return new Weather(
                     this.navigationInformation,
                     this.temperatureInformation,
                     this.lightInformation,

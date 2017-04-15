@@ -1,10 +1,52 @@
-package com.visuality.f32.weather.data;
+package com.visuality.f32.weather.data.entity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by igormatyushkin on 15.04.17.
  */
 
-public class LightInformation {
+public class LightInformation extends BaseEntity {
+
+    public static LightInformation fromJson(JSONObject jsonObject) {
+        /**
+         * Obtain sunrise timestamp.
+         */
+
+        long sunriseTimestamp = 0;
+
+        try {
+            sunriseTimestamp = jsonObject.getJSONObject("sys")
+                    .getLong("sunrise");
+        } catch (JSONException exception) {
+        }
+
+        /**
+         * Obtain sunset timestamp.
+         */
+
+        long sunsetTimestamp = 0;
+
+        try {
+            sunsetTimestamp = jsonObject.getJSONObject("sys")
+                    .getLong("sunset");
+        } catch (JSONException exception) {
+        }
+
+        /**
+         * Obtain result object.
+         */
+
+        final LightInformation resultObject = new LightInformation.Builder()
+                .build();
+
+        /**
+         * Return result.
+         */
+
+        return resultObject;
+    }
 
     private long sunriseTimestamp;
 
