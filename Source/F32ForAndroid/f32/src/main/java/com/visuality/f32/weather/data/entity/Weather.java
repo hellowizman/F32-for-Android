@@ -162,6 +162,36 @@ public class Weather extends BaseEntity {
          */
 
         this.lightInformation = lightInformation;
+
+        /**
+         * Initialize wind information.
+         */
+
+        this.windInformation = windInformation;
+
+        /**
+         * Initialize cloudiness information.
+         */
+
+        this.cloudinessInformation = cloudinessInformation;
+
+        /**
+         * Initialize rain information.
+         */
+
+        this.rainInformation = rainInformation;
+
+        /**
+         * Initialize snow information.
+         */
+
+        this.snowInformation = snowInformation;
+
+        /**
+         * Initialize weather timestamp.
+         */
+
+        this.weatherTimestamp = weatherTimestamp;
     }
 
     public static final class Builder {

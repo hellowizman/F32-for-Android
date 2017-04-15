@@ -4,7 +4,7 @@ package com.visuality.f32.networking.url;
  * Created by igormatyushkin on 15.04.17.
  */
 
-public class UrlFactory {
+public final class UrlFactory {
 
     private String baseUrl;
 
