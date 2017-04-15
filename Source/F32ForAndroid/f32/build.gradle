@@ -31,7 +31,7 @@ dependencies {
 }
 
 ext {
-    bintrayRepo = 'maven'
+    bintrayRepo = 'F32-for-Android'
     bintrayName = 'f32'
 
     publishedGroupId = 'com.visuality.f32forandroid'
