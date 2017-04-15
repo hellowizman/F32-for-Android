@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    testCompile 'junit:junit:4.12'
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'f32'
+
+    publishedGroupId = 'com.visuality.f32forandroid'
+    libraryName = 'F32'
+    artifact = 'f32'
+
+    libraryDescription = ''
+
+    siteUrl = 'https://github.com/igormatyushkin014/F32-for-Android'
+    gitUrl = 'https://github.com/igormatyushkin014/F32-for-Android.git'
+
+    libraryVersion = '0.1'
+
+    developerId = 'igormatyushkin'
+    developerName = 'Igor Matyushkin'
+    developerEmail = 'igormatyushkin014@gmail.com'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
