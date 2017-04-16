@@ -45,7 +45,7 @@ ext {
     siteUrl = 'https://github.com/igormatyushkin014/F32-for-Android'
     gitUrl = 'https://github.com/igormatyushkin014/F32-for-Android.git'
 
-    libraryVersion = '0.1'
+    libraryVersion = '0.2'
 
     developerId = 'igormatyushkin'
     developerName = 'Igor Matyushkin'
