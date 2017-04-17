@@ -1,5 +1,8 @@
 package com.visuality.f32.weather.data.entity;
 
+import com.visuality.f32.temperature.Temperature;
+import com.visuality.f32.temperature.TemperatureUnit;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,37 +17,52 @@ public class TemperatureInformation extends BaseEntity {
          * Obtain current temperature.
          */
 
-        double currentTemperature = 0.0;
+        double currentTemperatureInKelvin = 0.0;
 
         try {
-            currentTemperature = jsonObject.getJSONObject("main")
+            currentTemperatureInKelvin = jsonObject.getJSONObject("main")
                     .getDouble("temp");
         } catch (JSONException exception) {
         }
+
+        final Temperature currentTemperature = new Temperature(
+                currentTemperatureInKelvin,
+                TemperatureUnit.KELVIN
+        );
 
         /**
          * Obtain minimum temperature.
          */
 
-        double minimumTemperature = 0.0;
+        double minimumTemperatureInKelvin = 0.0;
 
         try {
-            minimumTemperature = jsonObject.getJSONObject("main")
+            minimumTemperatureInKelvin = jsonObject.getJSONObject("main")
                     .getDouble("temp_min");
         } catch (JSONException exception) {
         }
+
+        final Temperature minimumTemperature = new Temperature(
+                minimumTemperatureInKelvin,
+                TemperatureUnit.KELVIN
+        );
 
         /**
          * Obtain maximum temperature.
          */
 
-        double maximumTemperature = 0.0;
+        double maximumTemperatureInKelvin = 0.0;
 
         try {
-            maximumTemperature = jsonObject.getJSONObject("main")
+            maximumTemperatureInKelvin = jsonObject.getJSONObject("main")
                     .getDouble("temp_max");
         } catch (JSONException exception) {
         }
+
+        final Temperature maximumTemperature = new Temperature(
+                maximumTemperatureInKelvin,
+                TemperatureUnit.KELVIN
+        );
 
         /**
          * Obtain result object.
@@ -63,28 +81,28 @@ public class TemperatureInformation extends BaseEntity {
         return resultObject;
     }
 
-    private double current;
+    private Temperature current;
 
-    public double getCurrent() {
+    public Temperature getCurrent() {
         return current;
     }
 
-    private double minimum;
+    private Temperature minimum;
 
-    public double getMinimum() {
+    public Temperature getMinimum() {
         return minimum;
     }
 
-    private double maximum;
+    private Temperature maximum;
 
-    public double getMaximum() {
+    public Temperature getMaximum() {
         return maximum;
     }
 
     public TemperatureInformation(
-            double current,
-            double minimum,
-            double maximum
+            Temperature current,
+            Temperature minimum,
+            Temperature maximum
     ) {
         super();
 
@@ -109,23 +127,23 @@ public class TemperatureInformation extends BaseEntity {
 
     public static final class Builder {
 
-        private double current;
+        private Temperature current;
 
-        public Builder setCurrent(double current) {
+        public Builder setCurrent(Temperature current) {
             this.current = current;
             return this;
         }
 
-        private double minimum;
+        private Temperature minimum;
 
-        public Builder setMinimum(double minimum) {
+        public Builder setMinimum(Temperature minimum) {
             this.minimum = minimum;
             return this;
         }
 
-        private double maximum;
+        private Temperature maximum;
 
-        public Builder setMaximum(double maximum) {
+        public Builder setMaximum(Temperature maximum) {
             this.maximum = maximum;
             return this;
         }

@@ -39,6 +39,8 @@ public class LightInformation extends BaseEntity {
          */
 
         final LightInformation resultObject = new LightInformation.Builder()
+                .setSunriseTimestamp(sunriseTimestamp)
+                .setSunsetTimestamp(sunsetTimestamp)
                 .build();
 
         /**
