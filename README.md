@@ -8,7 +8,7 @@
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.0'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.1'`
 
 # Requirements
 
