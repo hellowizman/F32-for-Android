@@ -53,93 +53,93 @@ Object of `Weather` type can tell you a lot of information:
  * Location name.
  */
 
-String locationName = weather.getNavigationInformation().getLocationName();
+String locationName = weather.getNavigation().getLocationName();
 
 /*
  * Latitude of the place.
  */
 
-double latitude = weather.getNavigationInformation().getCoordinate().getLatitude();
+double latitude = weather.getNavigation().getCoordinate().getLatitude();
 
 
 /*
  * Longitude of the place.
  */
 
-double longitude = weather.getNavigationInformation().getCoordinate().getLongitude();
+double longitude = weather.getNavigation().getCoordinate().getLongitude();
 
 
 /*
  * Sea level.
  */
 
-double seaLevel = weather.getNavigationInformation().getSeaLevel();
+double seaLevel = weather.getNavigation().getSeaLevel();
 
 /*
  * Ground level.
  */
 
-double groundLevel = weather.getNavigationInformation().getGroundLevel();
+double groundLevel = weather.getNavigation().getGroundLevel();
 
 /*
  * Current temperature in Kelvin.
  */
 
-double currentTemperature = weather.getTemperatureInformation().getCurrentTemperature();
+double currentTemperature = weather.getTemperature().getCurrent();
 
 /*
  * Minimum temperature in Kelvin.
  */
 
-double minimumTemperature = weather.getTemperatureInformation().getMinimumTemperature();
+double minimumTemperature = weather.getTemperature().getMinimum();
 
 /*
  * Maximum temperature in Kelvin.
  */
 
-double maximumTemperature = weather.getTemperatureInformation().getMaximumTemperature();
+double maximumTemperature = weather.getTemperature().getMaximum();
 
 /*
  * Sunrise timestamp.
  */
 
-long sunriseTimestamp = weather.getLightInformation().getSunriseTimestamp();
+long sunriseTimestamp = weather.getLight().getSunriseTimestamp();
 
 /*
  * Sunset timestamp.
  */
 
-long sunsetTimestamp = weather.getLightInformation().getSunsetTimestamp();
+long sunsetTimestamp = weather.getLight().getSunsetTimestamp();
 
 /*
  * Wind speed in meters per second.
  */
 
-double windSpeed = weather.getWindInformation().getSpeed();
+double windSpeed = weather.getWind().getSpeed();
 
 /*
  * Wind direction in degrees.
  */
 
-double direction = weather.getWindInformation().getDirection();
+double direction = weather.getWind().getDirection();
 
 /*
  * Cloudiness in percents.
  */
 
-int cloudinessPercentage = weather.getCloudinessInformation().getCloudinessPercentage();
+int cloudinessPercentage = weather.getCloudiness().getPercentage();
 
 /*
  * Rain volume for last three hours.
  */
 
-double rainThreeHoursVolume = weather.getRainInformation().getThreeHoursVolume();
+double rainThreeHoursVolume = weather.getRain().getThreeHoursVolume();
 
 /*
  * Snow volume for last three hours.
  */
 
-double snowThreeHoursVolume = weather.getSnowInformation().getThreeHoursVolume();
+double snowThreeHoursVolume = weather.getSnow().getThreeHoursVolume();
 
 /*
  * Weather timestamp.
