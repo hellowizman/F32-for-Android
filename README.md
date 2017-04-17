@@ -8,7 +8,7 @@
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:0.2.2'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.0'`
 
 # Requirements
 
@@ -61,13 +61,11 @@ String locationName = weather.getNavigation().getLocationName();
 
 double latitude = weather.getNavigation().getCoordinate().getLatitude();
 
-
 /*
  * Longitude of the place.
  */
 
 double longitude = weather.getNavigation().getCoordinate().getLongitude();
-
 
 /*
  * Sea level.
