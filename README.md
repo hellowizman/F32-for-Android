@@ -83,55 +83,64 @@ double groundLevel = weather.getNavigation().getGroundLevel();
  * Current temperature in Kelvin.
  */
 
-double currentTemperatureInKelvin = weather.getTemperature().getCurrent().getValue(TemperatureUnit.KELVIN);
+double currentTemperatureInKelvin = weather.getTemperature().getCurrent()
+    .getValue(TemperatureUnit.KELVIN);
 
 /*
  * Current temperature in Celcius.
  */
 
-double currentTemperatureInCelcius = weather.getTemperature().getCurrent().getValue(TemperatureUnit.CELCIUS);
+double currentTemperatureInCelcius = weather.getTemperature().getCurrent()
+    .getValue(TemperatureUnit.CELCIUS);
 
 /*
  * Current temperature in Fahrenheit.
  */
 
-double currentTemperatureInFahrenheit = weather.getTemperature().getCurrent().getValue(TemperatureUnit.FAHRENHEIT);
+double currentTemperatureInFahrenheit = weather.getTemperature().getCurrent()
+    .getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Minimum temperature in Kelvin.
  */
 
-double minimumTemperatureInKelvin = weather.getTemperature().getMinimum().getValue(TemperatureUnit.KELVIN);
+double minimumTemperatureInKelvin = weather.getTemperature().getMinimum()
+    .getValue(TemperatureUnit.KELVIN);
 
 /*
  * Minimum temperature in Celcius.
  */
 
-double minimumTemperatureInCelcius = weather.getTemperature().getMinimum().getValue(TemperatureUnit.CELCIUS);
+double minimumTemperatureInCelcius = weather.getTemperature().getMinimum()
+    .getValue(TemperatureUnit.CELCIUS);
 
 /*
  * Minimum temperature in Fahrenheit.
  */
 
-double minimumTemperatureInFahrenheit = weather.getTemperature().getMinimum().getValue(TemperatureUnit.FAHRENHEIT);
+double minimumTemperatureInFahrenheit = weather.getTemperature().getMinimum()
+    .getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Maximum temperature in Kelvin.
  */
 
-double maximumTemperatureInKelvin = weather.getTemperature().getMaximum().getValue(TemperatureUnit.KELVIN);
+double maximumTemperatureInKelvin = weather.getTemperature().getMaximum()
+    .getValue(TemperatureUnit.KELVIN);
 
 /*
  * Maximum temperature in Celcius.
  */
 
-double maximumTemperatureInCelcius = weather.getTemperature().getMaximum().getValue(TemperatureUnit.CELCIUS);
+double maximumTemperatureInCelcius = weather.getTemperature().getMaximum()
+    .getValue(TemperatureUnit.CELCIUS);
 
 /*
  * Maximum temperature in Fahrenheit.
  */
 
-double maximumTemperatureInFahrenheit = weather.getTemperature().getMaximum().getValue(TemperatureUnit.FAHRENHEIT);
+double maximumTemperatureInFahrenheit = weather.getTemperature().getMaximum()
+    .getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Sunrise timestamp.
@@ -180,6 +189,15 @@ double snowThreeHoursVolume = weather.getSnow().getThreeHoursVolume();
  */
 
 long weatherTimestamp = weather.getWeatherTimestamp();
+```
+
+You can easily convert temperature from Kelvin to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
+
+```java
+Temperature temperature = new Temperature(32, TemperatureUnit.FAHRENHEIT);
+double temperatureInFahrenheit = temperature.getValue(TemperatureUnit.FAHRENHEIT); // 32.0 degrees
+double temperatureInCelcius = temperature.getValue(TemperatureUnit.CELCIUS); // 0.0 degrees
+double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 273.15 degrees
 ```
 
 # License
