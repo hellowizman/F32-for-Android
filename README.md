@@ -83,19 +83,55 @@ double groundLevel = weather.getNavigation().getGroundLevel();
  * Current temperature in Kelvin.
  */
 
-double currentTemperature = weather.getTemperature().getCurrent();
+double currentTemperatureInKelvin = weather.getTemperature().getCurrent().getValue(TemperatureUnit.KELVIN);
+
+/*
+ * Current temperature in Celcius.
+ */
+
+double currentTemperatureInCelcius = weather.getTemperature().getCurrent().getValue(TemperatureUnit.CELCIUS);
+
+/*
+ * Current temperature in Fahrenheit.
+ */
+
+double currentTemperatureInFahrenheit = weather.getTemperature().getCurrent().getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Minimum temperature in Kelvin.
  */
 
-double minimumTemperature = weather.getTemperature().getMinimum();
+double minimumTemperatureInKelvin = weather.getTemperature().getMinimum().getValue(TemperatureUnit.KELVIN);
+
+/*
+ * Minimum temperature in Celcius.
+ */
+
+double minimumTemperatureInCelcius = weather.getTemperature().getMinimum().getValue(TemperatureUnit.CELCIUS);
+
+/*
+ * Minimum temperature in Fahrenheit.
+ */
+
+double minimumTemperatureInFahrenheit = weather.getTemperature().getMinimum().getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Maximum temperature in Kelvin.
  */
 
-double maximumTemperature = weather.getTemperature().getMaximum();
+double maximumTemperatureInKelvin = weather.getTemperature().getMaximum().getValue(TemperatureUnit.KELVIN);
+
+/*
+ * Maximum temperature in Celcius.
+ */
+
+double maximumTemperatureInCelcius = weather.getTemperature().getMaximum().getValue(TemperatureUnit.CELCIUS);
+
+/*
+ * Maximum temperature in Fahrenheit.
+ */
+
+double maximumTemperatureInFahrenheit = weather.getTemperature().getMaximum().getValue(TemperatureUnit.FAHRENHEIT);
 
 /*
  * Sunrise timestamp.
