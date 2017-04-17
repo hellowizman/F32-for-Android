@@ -51,9 +51,9 @@ public class TemperatureInformation extends BaseEntity {
          */
 
         final TemperatureInformation resultObject = new TemperatureInformation.Builder()
-                .setCurrentTemperature(currentTemperature)
-                .setMinimumTemperature(minimumTemperature)
-                .setMaximumTemperature(maximumTemperature)
+                .setCurrent(currentTemperature)
+                .setMinimum(minimumTemperature)
+                .setMaximum(maximumTemperature)
                 .build();
 
         /**
@@ -63,28 +63,28 @@ public class TemperatureInformation extends BaseEntity {
         return resultObject;
     }
 
-    private double currentTemperature;
+    private double current;
 
-    public double getCurrentTemperature() {
-        return currentTemperature;
+    public double getCurrent() {
+        return current;
     }
 
-    private double minimumTemperature;
+    private double minimum;
 
-    public double getMinimumTemperature() {
-        return minimumTemperature;
+    public double getMinimum() {
+        return minimum;
     }
 
-    private double maximumTemperature;
+    private double maximum;
 
-    public double getMaximumTemperature() {
-        return maximumTemperature;
+    public double getMaximum() {
+        return maximum;
     }
 
     public TemperatureInformation(
-            double currentTemperature,
-            double minimumTemperature,
-            double maximumTemperature
+            double current,
+            double minimum,
+            double maximum
     ) {
         super();
 
@@ -92,49 +92,49 @@ public class TemperatureInformation extends BaseEntity {
          * Initialize current temperature.
          */
 
-        this.currentTemperature = currentTemperature;
+        this.current = current;
 
         /**
          * Initialize minimum temperature.
          */
 
-        this.minimumTemperature = minimumTemperature;
+        this.minimum = minimum;
 
         /**
          * Initialize maximum temperature.
          */
 
-        this.maximumTemperature = maximumTemperature;
+        this.maximum = maximum;
     }
 
     public static final class Builder {
 
-        private double currentTemperature;
+        private double current;
 
-        public Builder setCurrentTemperature(double currentTemperature) {
-            this.currentTemperature = currentTemperature;
+        public Builder setCurrent(double current) {
+            this.current = current;
             return this;
         }
 
-        private double minimumTemperature;
+        private double minimum;
 
-        public Builder setMinimumTemperature(double minimumTemperature) {
-            this.minimumTemperature = minimumTemperature;
+        public Builder setMinimum(double minimum) {
+            this.minimum = minimum;
             return this;
         }
 
-        private double maximumTemperature;
+        private double maximum;
 
-        public Builder setMaximumTemperature(double maximumTemperature) {
-            this.maximumTemperature = maximumTemperature;
+        public Builder setMaximum(double maximum) {
+            this.maximum = maximum;
             return this;
         }
 
         public TemperatureInformation build() {
             return new TemperatureInformation(
-                    this.currentTemperature,
-                    this.minimumTemperature,
-                    this.maximumTemperature
+                    this.current,
+                    this.minimum,
+                    this.maximum
             );
         }
     }

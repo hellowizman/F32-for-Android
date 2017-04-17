@@ -27,7 +27,7 @@ public class CloudinessInformation extends BaseEntity {
          */
 
         final CloudinessInformation resultObject = new CloudinessInformation.Builder()
-                .setCloudinessPercentage(cloudinessPercentage)
+                .setCloudiness(cloudinessPercentage)
                 .build();
 
         /**
@@ -37,14 +37,14 @@ public class CloudinessInformation extends BaseEntity {
         return resultObject;
     }
 
-    private int cloudinessPercentage;
+    private int percentage;
 
-    public int getCloudinessPercentage() {
-        return cloudinessPercentage;
+    public int getPercentage() {
+        return percentage;
     }
 
     public CloudinessInformation(
-            int cloudinessPercentage
+            int percentage
     ) {
         super();
 
@@ -52,21 +52,21 @@ public class CloudinessInformation extends BaseEntity {
          * Initialize cloudiness percentage.
          */
 
-        this.cloudinessPercentage = cloudinessPercentage;
+        this.percentage = percentage;
     }
 
     public static final class Builder {
 
-        private int cloudinessPercentage;
+        private int cloudiness;
 
-        public Builder setCloudinessPercentage(int cloudinessPercentage) {
-            this.cloudinessPercentage = cloudinessPercentage;
+        public Builder setCloudiness(int cloudiness) {
+            this.cloudiness = cloudiness;
             return this;
         }
 
         public CloudinessInformation build() {
             return new CloudinessInformation(
-                    this.cloudinessPercentage
+                    this.cloudiness
             );
         }
     }

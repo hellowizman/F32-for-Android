@@ -68,13 +68,13 @@ public class Weather extends BaseEntity {
          */
 
         final Weather resultObject = new Weather.Builder()
-                .setNavigationInformation(navigationInformation)
-                .setTemperatureInformation(temperatureInformation)
-                .setLightInformation(lightInformation)
-                .setWindInformation(windInformation)
-                .setCloudinessInformation(cloudinessInformation)
-                .setRainInformation(rainInformation)
-                .setSnowInformation(snowInformation)
+                .setNavigation(navigationInformation)
+                .setTemperature(temperatureInformation)
+                .setLight(lightInformation)
+                .setWind(windInformation)
+                .setCloudiness(cloudinessInformation)
+                .setRain(rainInformation)
+                .setSnow(snowInformation)
                 .setWeatherTimestamp(weatherTimestamp)
                 .build();
 
@@ -85,46 +85,46 @@ public class Weather extends BaseEntity {
         return resultObject;
     }
 
-    private NavigationInformation navigationInformation;
+    private NavigationInformation navigation;
 
-    public NavigationInformation getNavigationInformation() {
-        return navigationInformation;
+    public NavigationInformation getNavigation() {
+        return navigation;
     }
 
-    private TemperatureInformation temperatureInformation;
+    private TemperatureInformation temperature;
 
-    public TemperatureInformation getTemperatureInformation() {
-        return temperatureInformation;
+    public TemperatureInformation getTemperature() {
+        return temperature;
     }
 
-    private LightInformation lightInformation;
+    private LightInformation light;
 
-    public LightInformation getLightInformation() {
-        return lightInformation;
+    public LightInformation getLight() {
+        return light;
     }
 
-    private WindInformation windInformation;
+    private WindInformation wind;
 
-    public WindInformation getWindInformation() {
-        return windInformation;
+    public WindInformation getWind() {
+        return wind;
     }
 
-    private CloudinessInformation cloudinessInformation;
+    private CloudinessInformation cloudiness;
 
-    public CloudinessInformation getCloudinessInformation() {
-        return cloudinessInformation;
+    public CloudinessInformation getCloudiness() {
+        return cloudiness;
     }
 
-    private RainInformation rainInformation;
+    private RainInformation rain;
 
-    public RainInformation getRainInformation() {
-        return rainInformation;
+    public RainInformation getRain() {
+        return rain;
     }
 
-    private SnowInformation snowInformation;
+    private SnowInformation snow;
 
-    public SnowInformation getSnowInformation() {
-        return snowInformation;
+    public SnowInformation getSnow() {
+        return snow;
     }
 
     private long weatherTimestamp;
@@ -134,13 +134,13 @@ public class Weather extends BaseEntity {
     }
 
     public Weather(
-            NavigationInformation navigationInformation,
-            TemperatureInformation temperatureInformation,
-            LightInformation lightInformation,
-            WindInformation windInformation,
-            CloudinessInformation cloudinessInformation,
-            RainInformation rainInformation,
-            SnowInformation snowInformation,
+            NavigationInformation navigation,
+            TemperatureInformation temperature,
+            LightInformation light,
+            WindInformation wind,
+            CloudinessInformation cloudiness,
+            RainInformation rain,
+            SnowInformation snow,
             long weatherTimestamp
     ) {
         super();
@@ -149,43 +149,43 @@ public class Weather extends BaseEntity {
          * Initialize navigation information.
          */
 
-        this.navigationInformation = navigationInformation;
+        this.navigation = navigation;
 
         /**
          * Initialize temperature information.
          */
 
-        this.temperatureInformation = temperatureInformation;
+        this.temperature = temperature;
 
         /**
          * Initialize light information.
          */
 
-        this.lightInformation = lightInformation;
+        this.light = light;
 
         /**
          * Initialize wind information.
          */
 
-        this.windInformation = windInformation;
+        this.wind = wind;
 
         /**
          * Initialize cloudiness information.
          */
 
-        this.cloudinessInformation = cloudinessInformation;
+        this.cloudiness = cloudiness;
 
         /**
          * Initialize rain information.
          */
 
-        this.rainInformation = rainInformation;
+        this.rain = rain;
 
         /**
          * Initialize snow information.
          */
 
-        this.snowInformation = snowInformation;
+        this.snow = snow;
 
         /**
          * Initialize weather timestamp.
@@ -196,52 +196,52 @@ public class Weather extends BaseEntity {
 
     public static final class Builder {
 
-        private NavigationInformation navigationInformation;
+        private NavigationInformation navigation;
 
-        public Builder setNavigationInformation(NavigationInformation navigationInformation) {
-            this.navigationInformation = navigationInformation;
+        public Builder setNavigation(NavigationInformation navigation) {
+            this.navigation = navigation;
             return this;
         }
 
-        private TemperatureInformation temperatureInformation;
+        private TemperatureInformation temperature;
 
-        public Builder setTemperatureInformation(TemperatureInformation temperatureInformation) {
-            this.temperatureInformation = temperatureInformation;
+        public Builder setTemperature(TemperatureInformation temperature) {
+            this.temperature = temperature;
             return this;
         }
 
-        private LightInformation lightInformation;
+        private LightInformation light;
 
-        public Builder setLightInformation(LightInformation lightInformation) {
-            this.lightInformation = lightInformation;
+        public Builder setLight(LightInformation light) {
+            this.light = light;
             return this;
         }
 
-        private WindInformation windInformation;
+        private WindInformation wind;
 
-        public Builder setWindInformation(WindInformation windInformation) {
-            this.windInformation = windInformation;
+        public Builder setWind(WindInformation wind) {
+            this.wind = wind;
             return this;
         }
 
-        private CloudinessInformation cloudinessInformation;
+        private CloudinessInformation cloudiness;
 
-        public Builder setCloudinessInformation(CloudinessInformation cloudinessInformation) {
-            this.cloudinessInformation = cloudinessInformation;
+        public Builder setCloudiness(CloudinessInformation cloudiness) {
+            this.cloudiness = cloudiness;
             return this;
         }
 
-        private RainInformation rainInformation;
+        private RainInformation rain;
 
-        public Builder setRainInformation(RainInformation rainInformation) {
-            this.rainInformation = rainInformation;
+        public Builder setRain(RainInformation rain) {
+            this.rain = rain;
             return this;
         }
 
-        private SnowInformation snowInformation;
+        private SnowInformation snow;
 
-        public Builder setSnowInformation(SnowInformation snowInformation) {
-            this.snowInformation = snowInformation;
+        public Builder setSnow(SnowInformation snow) {
+            this.snow = snow;
             return this;
         }
 
@@ -254,13 +254,13 @@ public class Weather extends BaseEntity {
 
         public Weather build() {
             return new Weather(
-                    this.navigationInformation,
-                    this.temperatureInformation,
-                    this.lightInformation,
-                    this.windInformation,
-                    this.cloudinessInformation,
-                    this.rainInformation,
-                    this.snowInformation,
+                    this.navigation,
+                    this.temperature,
+                    this.light,
+                    this.wind,
+                    this.cloudiness,
+                    this.rain,
+                    this.snow,
                     this.weatherTimestamp
             );
         }
