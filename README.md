@@ -5,8 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://swift.org"><img src="https://img.shields.io/badge/java-7-orange.svg?style=flat"></a>
-  <a href="https://tldrlegal.com/license/mit-license"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat"></a>
+  <a href="http://www.oracle.com/java"><img src="https://img.shields.io/badge/java-7-orange.svg?style=flat"></a>
+  <a href="http://android.com"><img src="https://img.shields.io/badge/os-android-green.svg?style=flat"></a>
+  <a href="http://tldrlegal.com/license/mit-license"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat"></a>
 </p>
 
 ## At a Glance
