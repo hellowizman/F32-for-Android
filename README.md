@@ -1,8 +1,19 @@
-# At a Glance
+# F32
+
+<p align="center" >
+  <img src="https://github.com/igormatyushkin014/F32-for-Android/raw/master/Images/logo_500_500.png" alt="F32" title="F32">
+</p>
+
+<p align="center">
+  <a href="https://swift.org"><img src="https://img.shields.io/badge/java-7-orange.svg?style=flat"></a>
+  <a href="https://tldrlegal.com/license/mit-license"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat"></a>
+</p>
+
+## At a Glance
 
 `F32` is a wrapper for [OpenWeatherMap API](http://openweathermap.org/api). It provides developer with super-simple way to obtain weather information by geographic coordinates.
 
-# How To Get Started
+## How To Get Started
 
 - Copy content from `Source/F32ForAndroid/f32/src/main/java/com/visuality/f32` folder to your project.
 
@@ -10,13 +21,13 @@ or
 
 - Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.1'`
 
-# Requirements
+## Requirements
 
 * Android Studio 2.3 or later
-* Java 8 or later
+* Java 7 or later
 * Android 4.0.3 or later
 
-# Usage
+## Usage
 
 First of all, sign up [here](http://openweathermap.org) and get API key (if you don't already have one).
 
@@ -200,6 +211,6 @@ double temperatureInCelcius = temperature.getValue(TemperatureUnit.CELCIUS); // 
 double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 273.15 degrees
 ```
 
-# License
+## License
 
 `F32` is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
