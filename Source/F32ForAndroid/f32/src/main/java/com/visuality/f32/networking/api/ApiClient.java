@@ -27,7 +27,7 @@ public final class ApiClient {
             double latitude,
             double longitude,
             String apiKey,
-            final GetCurrentWeatherRequestHandler handler
+            final CurrentWeatherRequestHandler handler
     ) {
         /**
          * Obtain URL.
@@ -139,7 +139,14 @@ public final class ApiClient {
         return request;
     }
 
-    public interface GetCurrentWeatherRequestHandler {
+    public interface CurrentWeatherRequestHandler {
+
+        void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather);
+
+        void onFinishedRequestWithError(ApiClient apiClient);
+    }
+
+    public interface ForecastRequestHandler {
 
         void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather);
 

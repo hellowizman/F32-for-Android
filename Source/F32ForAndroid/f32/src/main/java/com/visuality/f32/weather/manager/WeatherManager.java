@@ -34,7 +34,7 @@ public final class WeatherManager {
          * Create request handler.
          */
 
-        final ApiClient.GetCurrentWeatherRequestHandler requestHandler = new ApiClient.GetCurrentWeatherRequestHandler() {
+        final ApiClient.CurrentWeatherRequestHandler requestHandler = new ApiClient.CurrentWeatherRequestHandler() {
             @Override
             public void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather) {
                 if (handler != null) {
