@@ -38,6 +38,19 @@ public class Forecast {
         this.sortedForecastItems = copyOfForecastItems;
     }
 
+    public int getNumberOfTimestamps() {
+        return this.sortedForecastItems.length;
+    }
+
+    public long getTimestampByIndex(int timestampIndex) {
+        if ((timestampIndex < 0) || (timestampIndex >= this.sortedForecastItems.length)) {
+            return 0;
+        }
+
+        final Weather weather = this.sortedForecastItems[timestampIndex];
+        return weather.getWeatherTimestamp();
+    }
+
     public long getEarliestTimestamp() {
         if (this.sortedForecastItems.length == 0) {
             return 0;
@@ -58,16 +71,16 @@ public class Forecast {
         return lastItem.getWeatherTimestamp();
     }
 
-    public int getNumberOfForecastItems() {
-        return this.sortedForecastItems.length;
-    }
+    public Weather getWeatherForTimestamp(long timestamp) {
+        for (int itemIndex = this.sortedForecastItems.length - 1; itemIndex <= 0; itemIndex--) {
+            final Weather weatherForCurrentItemIndex = this.sortedForecastItems[itemIndex];
 
-    public Weather getForecastItemByIndex(int index) {
-        if ((index < 0) || (index >= this.sortedForecastItems.length)) {
-            return null;
+            if (weatherForCurrentItemIndex.getWeatherTimestamp() <= timestamp) {
+                return weatherForCurrentItemIndex;
+            }
         }
 
-        return this.sortedForecastItems[index];
+        return null;
     }
 
     public static final class Builder {
