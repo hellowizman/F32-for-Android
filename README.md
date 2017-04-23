@@ -30,6 +30,8 @@ or
 
 ## Usage
 
+### Preparations
+
 First of all, sign up [here](http://openweathermap.org) and get API key (if you don't already have one).
 
 Also, don't forget to append `INTERNET` permission to your application's manifest file:
@@ -38,10 +40,12 @@ Also, don't forget to append `INTERNET` permission to your application's manifes
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Now you are ready to make request for current weather:
+### Current weather
+
+Below you can see how to make request for current weather:
 
 ```java
-new WeatherManager(API_KEY).getCurrentWeather(
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeather(
         47.2257, // latitude
         38.9383, // longitude
         new WeatherManager.CurrentWeatherHandler() {
@@ -57,6 +61,8 @@ new WeatherManager(API_KEY).getCurrentWeather(
         }
 );
 ```
+
+### Weather class
 
 Object of `Weather` type can tell you a lot of information:
 
@@ -202,6 +208,8 @@ double snowThreeHoursVolume = weather.getSnow().getThreeHoursVolume();
 
 long weatherTimestamp = weather.getWeatherTimestamp();
 ```
+
+### Temperature Conversions
 
 You can easily convert temperature from Kelvin to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
 
