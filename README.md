@@ -20,7 +20,7 @@
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.1'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.2'`
 
 ## Requirements
 
@@ -45,7 +45,11 @@ Also, don't forget to append `INTERNET` permission to your application's manifes
 Below you can see how to make request for current weather:
 
 ```java
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeather(
+/*
+ * Request for current weather using coordinates.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
         47.2257, // latitude
         38.9383, // longitude
         new WeatherManager.CurrentWeatherHandler() {
@@ -207,6 +211,95 @@ double snowThreeHoursVolume = weather.getSnow().getThreeHoursVolume();
  */
 
 long weatherTimestamp = weather.getWeatherTimestamp();
+```
+
+### Forecast
+
+Example of request for 5 day forecast:
+
+```java
+/*
+ * Request for 5 day forecast using coordinates.
+ */
+
+new WeatherManager(API_KEY).getFiveDayForecastByCoordinates(
+        47.2257,
+        38.9383,
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Handle forecast
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+```
+
+If request was successful, handler returns object of `Forecast` type. Forecast is a set of weathers for different timestamps. For example, forecast may include weather for today's 4 PM, today's 7 PM, tomorrow's 8 AM, etc. Below you can see example of usage:
+
+```java
+new WeatherManager(API_KEY).getFiveDayForecastByCoordinates(
+        47.2257,
+        38.9383,
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Example of handling forecast.
+                
+                int numberOfAvailableTimestamps = forecast.getNumberOfTimestamps();
+                
+                for (int timestampIndex = 0; timestampIndex < numberOfAvailableTimestamps; timestampIndex++) {
+                    long timestamp = forecast.getTimestampByIndex(timestampIndex);
+                    Weather weatherForTimestamp = forecast.getWeatherForTimestamp(timestamp);
+                    // Do something with weather information...
+                }
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+```
+
+Also, you can request the most appropriate weather for random timestamp:
+
+```java
+new WeatherManager(API_KEY).getFiveDayForecastByCoordinates(
+        47.2257,
+        38.9383,
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Example of handling forecast.
+                
+                long rightNow = System.currentTimeMillis() / 1000;
+                
+                long inOneHour = rightNow + TimeUnit.HOURS.toSeconds(1);
+                Weather weatherInOneHour = forecast.getWeatherForTimestamp(inOneHour);
+                
+                long afterTwoDays = rightNow + TimeUnit.DAYS.toSeconds(2);
+                Weather weatherInTwoDays = forecast.getWeatherForTimestamp(afterTwoDays);
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+```
+
+You can simply check earliest and latest available timestamp:
+
+```java
+long earliestAvailableTimestamp = forecast.getEarliestTimestamp();
+long latestAvailableTimestamp = forecast.getLatestTimestamp();
 ```
 
 ### Temperature Conversions
