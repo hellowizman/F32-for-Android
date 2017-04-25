@@ -1,6 +1,7 @@
 package com.visuality.f32.weather.manager;
 
 import com.visuality.f32.networking.api.ApiClient;
+import com.visuality.f32.weather.data.entity.Forecast;
 import com.visuality.f32.weather.data.entity.Weather;
 
 /**
@@ -25,7 +26,7 @@ public final class WeatherManager {
         this.apiKey = apiKey;
     }
 
-    public void getCurrentWeather(
+    public void getCurrentWeatherByCoordinates(
             double latitude,
             double longitude,
             final CurrentWeatherHandler handler
@@ -61,10 +62,55 @@ public final class WeatherManager {
 
         final ApiClient apiClient = new ApiClient();
 
-        apiClient.getCurrentWeather(
+        apiClient.getCurrentWeatherByCoordinates(
                 latitude,
                 longitude,
-                apiKey,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
+    public void getFiveDayForecastByCoordinates(
+            double latitude,
+            double longitude,
+            final ForecastHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.ForecastRequestHandler requestHandler = new ApiClient.ForecastRequestHandler() {
+
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Forecast forecast) {
+                if (handler != null) {
+                    handler.onReceivedForecast(
+                            WeatherManager.this,
+                            forecast
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveForecast(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getFiveDayForecastByCoordinates(
+                latitude,
+                longitude,
+                this.apiKey,
                 requestHandler
         );
     }
@@ -77,6 +123,18 @@ public final class WeatherManager {
         );
 
         void onFailedToReceiveCurrentWeather(
+                WeatherManager manager
+        );
+    }
+
+    public interface ForecastHandler {
+
+        void onReceivedForecast(
+                WeatherManager manager,
+                Forecast forecast
+        );
+
+        void onFailedToReceiveForecast(
                 WeatherManager manager
         );
     }
