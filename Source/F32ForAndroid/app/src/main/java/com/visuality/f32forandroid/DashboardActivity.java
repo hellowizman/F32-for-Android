@@ -19,7 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
          * Test weather manager.
          */
 
-        new WeatherManager(API_KEY).getCurrentWeather(
+        new WeatherManager(API_KEY).getCurrentWeatherByCoordinates(
                 47.2257,
                 38.9383,
                 new WeatherManager.CurrentWeatherHandler() {
