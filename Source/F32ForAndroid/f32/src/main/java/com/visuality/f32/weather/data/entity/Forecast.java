@@ -1,5 +1,10 @@
 package com.visuality.f32.weather.data.entity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -8,6 +13,124 @@ import java.util.Comparator;
  */
 
 public class Forecast {
+
+    public static Forecast fromJson(JSONObject jsonObject) {
+        /**
+         * Obtain navigation information.
+         */
+
+        JSONObject navigationJsonObject = null;
+
+        try {
+            navigationJsonObject = jsonObject.getJSONObject("city");
+        } catch (JSONException exception) {
+        }
+
+        NavigationInformation navigationInformation = navigationJsonObject == null
+                ? null
+                : NavigationInformation.fromJson(navigationJsonObject);
+
+        /**
+         * Obtain forecast items.
+         */
+
+        final ArrayList<Weather> forecastItemsCollection = new ArrayList<Weather>();
+
+        try {
+            JSONArray forecastItemsJsonArray = jsonObject.getJSONArray("list");
+
+            final int numberOfForecastItems = forecastItemsJsonArray.length();
+
+            for (int i = 0; i < numberOfForecastItems; i++) {
+                /**
+                 * Obtain forecast item JSON object.
+                 */
+
+                final JSONObject forecastItemJsonObject = forecastItemsJsonArray.getJSONObject(i);
+
+                /**
+                 * Obtain temperature information.
+                 */
+
+                TemperatureInformation temperatureInformation = TemperatureInformation.fromJson(forecastItemJsonObject);
+
+                /**
+                 * Obtain light information.
+                 */
+
+                LightInformation lightInformation = null;
+
+                /**
+                 * Obtain wind information.
+                 */
+
+                WindInformation windInformation = WindInformation.fromJson(forecastItemJsonObject);
+
+                /**
+                 * Obtain cloudiness information.
+                 */
+
+                CloudinessInformation cloudinessInformation = CloudinessInformation.fromJson(forecastItemJsonObject);
+
+                /**
+                 * Obtain rain information.
+                 */
+
+                RainInformation rainInformation = RainInformation.fromJson(forecastItemJsonObject);
+
+                /**
+                 * Obtain snow information.
+                 */
+
+                SnowInformation snowInformation = SnowInformation.fromJson(forecastItemJsonObject);
+
+                /**
+                 * Obtain weather timestamp.
+                 */
+
+                long weatherTimestamp = 0;
+
+                try {
+                    weatherTimestamp = forecastItemJsonObject.getLong("dt");
+                } catch (JSONException exception) {
+                }
+
+                /**
+                 * Obtain forecast item.
+                 */
+
+                final Weather forecastItem = new Weather.Builder()
+                        .setNavigation(navigationInformation)
+                        .setTemperature(temperatureInformation)
+                        .setLight(lightInformation)
+                        .setWind(windInformation)
+                        .setCloudiness(cloudinessInformation)
+                        .setRain(rainInformation)
+                        .setSnow(snowInformation)
+                        .setWeatherTimestamp(weatherTimestamp)
+                        .build();
+
+                /**
+                 * Update forecast items collection.
+                 */
+
+                forecastItemsCollection.add(forecastItem);
+            }
+        } catch (JSONException exception) {
+        }
+
+        final Weather[] forecastItemsArray = forecastItemsCollection.toArray(
+                new Weather[forecastItemsCollection.size()]
+        );
+
+        /**
+         * Return result.
+         */
+
+        return new Forecast.Builder()
+                .setForecastItems(forecastItemsArray)
+                .build();
+    }
 
     private Weather[] sortedForecastItems;
 
@@ -72,7 +195,7 @@ public class Forecast {
     }
 
     public Weather getWeatherForTimestamp(long timestamp) {
-        for (int itemIndex = this.sortedForecastItems.length - 1; itemIndex <= 0; itemIndex--) {
+        for (int itemIndex = this.sortedForecastItems.length - 1; itemIndex >= 0; itemIndex--) {
             final Weather weatherForCurrentItemIndex = this.sortedForecastItems[itemIndex];
 
             if (weatherForCurrentItemIndex.getWeatherTimestamp() <= timestamp) {
