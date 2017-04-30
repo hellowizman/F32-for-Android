@@ -69,8 +69,8 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
  * Request for current weather using city name.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
-        "New York",
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCityName(
+        "New York", // city name
         new WeatherManager.CurrentWeatherHandler() {
             @Override
             public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
@@ -88,8 +88,8 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
  * Request for current weather using city ID.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
-        2172797,
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCityId(
+        2172797, // city id
         new WeatherManager.CurrentWeatherHandler() {
             @Override
             public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
@@ -107,8 +107,9 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
  * Request for current weather using ZIP code.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
-        "94040",
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByZipCode(
+        "94040", // ZIP code
+        "us", // country code
         new WeatherManager.CurrentWeatherHandler() {
             @Override
             public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
@@ -280,8 +281,8 @@ Example of request for 5 day forecast:
  */
 
 new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
-        47.2257,
-        38.9383,
+        47.2257, // latitude
+        38.9383, // longitude
         new WeatherManager.ForecastHandler() {
             @Override
             public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
@@ -299,8 +300,8 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
  * Request for 5 day forecast using city name.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
-        "New York",
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCityName(
+        "New York", // city name
         new WeatherManager.ForecastHandler() {
             @Override
             public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
@@ -318,8 +319,8 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
  * Request for 5 day forecast using city ID.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
-        2172797,
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCityId(
+        2172797, // city id
         new WeatherManager.ForecastHandler() {
             @Override
             public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
@@ -337,8 +338,9 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
  * Request for 5 day forecast using ZIP code.
  */
 
-new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
-        "94040",
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByZipCode(
+        "94040", // ZIP code
+        "us", // country code
         new WeatherManager.ForecastHandler() {
             @Override
             public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
