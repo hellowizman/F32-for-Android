@@ -64,6 +64,63 @@ new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
             }
         }
 );
+
+/*
+ * Request for current weather using city name.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
+        "New York",
+        new WeatherManager.CurrentWeatherHandler() {
+            @Override
+            public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
+                // Handle current weather information
+            }
+
+            @Override
+            public void onFailedToReceiveCurrentWeather(WeatherManager manager) {
+                // Handle error
+            }
+        }
+);
+
+/*
+ * Request for current weather using city ID.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
+        2172797,
+        new WeatherManager.CurrentWeatherHandler() {
+            @Override
+            public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
+                // Handle current weather information
+            }
+
+            @Override
+            public void onFailedToReceiveCurrentWeather(WeatherManager manager) {
+                // Handle error
+            }
+        }
+);
+
+/*
+ * Request for current weather using ZIP code.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getCurrentWeatherByCoordinates(
+        "94040",
+        new WeatherManager.CurrentWeatherHandler() {
+            @Override
+            public void onReceivedCurrentWeather(WeatherManager manager, Weather weather) {
+                // Handle current weather information
+            }
+
+            @Override
+            public void onFailedToReceiveCurrentWeather(WeatherManager manager) {
+                // Handle error
+            }
+        }
+);
 ```
 
 ### Weather class
@@ -222,9 +279,66 @@ Example of request for 5 day forecast:
  * Request for 5 day forecast using coordinates.
  */
 
-new WeatherManager(API_KEY).getFiveDayForecastByCoordinates(
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
         47.2257,
         38.9383,
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Handle forecast
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+
+/*
+ * Request for 5 day forecast using city name.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
+        "New York",
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Handle forecast
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+
+/*
+ * Request for 5 day forecast using city ID.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
+        2172797,
+        new WeatherManager.ForecastHandler() {
+            @Override
+            public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
+                // Handle forecast
+            }
+
+            @Override
+            public void onFailedToReceiveForecast(WeatherManager manager) {
+                // Handle error...
+            }
+        }
+);
+
+/*
+ * Request for 5 day forecast using ZIP code.
+ */
+
+new WeatherManager("INSERT_YOUR_API_KEY_HERE").getFiveDayForecastByCoordinates(
+        "94040",
         new WeatherManager.ForecastHandler() {
             @Override
             public void onReceivedForecast(WeatherManager manager, Forecast forecast) {
