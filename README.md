@@ -434,12 +434,27 @@ double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 27
 Before displaying temperature in the app, you need to convert it to string. It's recommended to use `TemperatureFormatter` class for this purpose:
 
 ```java
-String text = new TemperatureFormatter().getStringFromTemperature(
+/*
+ * Format temperature with no digits after decimal point.
+ */
+
+String temperatureWithoutDecimalPoint = new TemperatureFormatter().getStringFromTemperature(
         32.0,
         TemperatureUnit.FAHRENHEIT
 );
 
-Log.d("", text); // "32.0 °F"
+Log.d("TemperatureFormatter", temperatureWithoutDecimalPoint); // "32 °F"
+
+/*
+ * Format temperature with digit after decimal point.
+ */
+
+String temperatureWithDecimalPoint = new TemperatureFormatter().getStringFromTemperature(
+        273.15,
+        TemperatureUnit.KELVIN
+);
+
+Log.d("TemperatureFormatter", temperatureWithDecimalPoint); // "273.15 °K"
 ```
 
 ## License
