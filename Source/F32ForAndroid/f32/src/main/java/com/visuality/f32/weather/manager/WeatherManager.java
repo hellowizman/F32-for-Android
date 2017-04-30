@@ -70,6 +70,132 @@ public final class WeatherManager {
         );
     }
 
+    public void getCurrentWeatherByCityName(
+            String cityName,
+            final CurrentWeatherHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.CurrentWeatherRequestHandler requestHandler = new ApiClient.CurrentWeatherRequestHandler() {
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather) {
+                if (handler != null) {
+                    handler.onReceivedCurrentWeather(
+                            WeatherManager.this,
+                            weather
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveCurrentWeather(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getCurrentWeatherByCityName(
+                cityName,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
+    public void getCurrentWeatherByCityId(
+            int cityId,
+            final CurrentWeatherHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.CurrentWeatherRequestHandler requestHandler = new ApiClient.CurrentWeatherRequestHandler() {
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather) {
+                if (handler != null) {
+                    handler.onReceivedCurrentWeather(
+                            WeatherManager.this,
+                            weather
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveCurrentWeather(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getCurrentWeatherByCityId(
+                cityId,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
+    public void getCurrentWeatherByZipCode(
+            String zipCode,
+            final CurrentWeatherHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.CurrentWeatherRequestHandler requestHandler = new ApiClient.CurrentWeatherRequestHandler() {
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Weather weather) {
+                if (handler != null) {
+                    handler.onReceivedCurrentWeather(
+                            WeatherManager.this,
+                            weather
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveCurrentWeather(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getCurrentWeatherByZipCode(
+                zipCode,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
     public void getFiveDayForecastByCoordinates(
             double latitude,
             double longitude,
