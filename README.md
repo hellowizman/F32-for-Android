@@ -429,6 +429,19 @@ double temperatureInCelcius = temperature.getValue(TemperatureUnit.CELCIUS); // 
 double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 273.15 degrees
 ```
 
+### Temperature Formatter
+
+Before displaying temperature in the app, you need to convert it to string. It's recommended to use `TemperatureFormatter` class for this purpose:
+
+```java
+String text = new TemperatureFormatter().getStringFromTemperature(
+        32.0,
+        TemperatureUnit.FAHRENHEIT
+);
+
+Log.d("", text); // "32.0 °F"
+```
+
 ## License
 
 `F32` is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.
