@@ -20,7 +20,7 @@
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.2'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.3'`
 
 ## Requirements
 
