@@ -12,7 +12,7 @@
 
 ## At a Glance
 
-`F32` is a wrapper for [OpenWeatherMap API](http://openweathermap.org/api). It provides developer with super-simple way to obtain weather information by geographic coordinates.
+`F32` is a library for temperature conversions and weather forecasts. It includes wrapper for [OpenWeatherMap API](http://openweathermap.org/api) and provides developer with super-simple way to obtain weather information by geographic coordinates, city name and ZIP code.
 
 ## How To Get Started
 
@@ -20,7 +20,7 @@
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:1.3'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.0'`
 
 ## Requirements
 
@@ -30,9 +30,9 @@ or
 
 ## Usage
 
-### Preparations
+### Preparations For Weather Requests
 
-First of all, sign up [here](http://openweathermap.org) and get API key (if you don't already have one).
+Before making requests for weather forecast, sign up [here](http://openweathermap.org) and get API key (if you don't already have one).
 
 Also, don't forget to append `INTERNET` permission to your application's manifest file:
 
