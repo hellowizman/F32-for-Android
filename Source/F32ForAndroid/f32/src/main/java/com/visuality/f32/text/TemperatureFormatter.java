@@ -2,6 +2,7 @@ package com.visuality.f32.text;
 
 import com.visuality.f32.temperature.TemperatureUnit;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 /**
@@ -22,12 +23,33 @@ public class TemperatureFormatter {
      * @return String containing formatted temperature.
      */
     public String getStringFromTemperature(Locale locale, double temperature, TemperatureUnit unit) {
+        /**
+         * Obtain temperature value string.
+         */
+
+        final DecimalFormat temperatureFormat = new DecimalFormat("#.##");
+        final String temperatureValueString = temperatureFormat.format(temperature);
+
+        /**
+         * Obtain degree symbol.
+         */
+
         final String degreeSymbol = "°";
+
+        /**
+         * Obtain temperature unit symbol.
+         */
+
         final String temperatureUnitSymbol = getTemperatureUnitSymbol(unit);
+
+        /**
+         * Return result.
+         */
 
         return String.format(
                 locale,
                 "%s %s%s",
+                temperatureValueString,
                 degreeSymbol,
                 temperatureUnitSymbol
         );
@@ -40,8 +62,18 @@ public class TemperatureFormatter {
      * @return String containing formatted temperature.
      */
     public String getStringFromTemperature(double temperature, TemperatureUnit unit) {
+        /**
+         * Obtain default locale.
+         */
+
+        final Locale defaultLocale = Locale.getDefault();
+
+        /**
+         * Return result.
+         */
+
         return getStringFromTemperature(
-                Locale.getDefault(),
+                defaultLocale,
                 temperature,
                 unit
         );
