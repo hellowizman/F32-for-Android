@@ -241,6 +241,135 @@ public final class WeatherManager {
         );
     }
 
+    public void getFiveDayForecastByCityName(
+            String cityName,
+            final ForecastHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.ForecastRequestHandler requestHandler = new ApiClient.ForecastRequestHandler() {
+
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Forecast forecast) {
+                if (handler != null) {
+                    handler.onReceivedForecast(
+                            WeatherManager.this,
+                            forecast
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveForecast(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getFiveDayForecastByCityName(
+                cityName,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
+    public void getFiveDayForecastByCityId(
+            int cityId,
+            final ForecastHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.ForecastRequestHandler requestHandler = new ApiClient.ForecastRequestHandler() {
+
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Forecast forecast) {
+                if (handler != null) {
+                    handler.onReceivedForecast(
+                            WeatherManager.this,
+                            forecast
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveForecast(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getFiveDayForecastByCityId(
+                cityId,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
+    public void getFiveDayForecastByZipCode(
+            String zipCode,
+            final ForecastHandler handler
+    ) {
+        /**
+         * Create request handler.
+         */
+
+        final ApiClient.ForecastRequestHandler requestHandler = new ApiClient.ForecastRequestHandler() {
+
+            @Override
+            public void onFinishedRequestWithSuccess(ApiClient apiClient, Forecast forecast) {
+                if (handler != null) {
+                    handler.onReceivedForecast(
+                            WeatherManager.this,
+                            forecast
+                    );
+                }
+            }
+
+            @Override
+            public void onFinishedRequestWithError(ApiClient apiClient) {
+                if (handler != null) {
+                    handler.onFailedToReceiveForecast(
+                            WeatherManager.this
+                    );
+                }
+            }
+        };
+
+        /**
+         * Start request.
+         */
+
+        final ApiClient apiClient = new ApiClient();
+
+        apiClient.getFiveDayForecastByZipCode(
+                zipCode,
+                this.apiKey,
+                requestHandler
+        );
+    }
+
     public interface CurrentWeatherHandler {
 
         void onReceivedCurrentWeather(
