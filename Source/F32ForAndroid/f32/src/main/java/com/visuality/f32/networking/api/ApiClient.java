@@ -382,6 +382,7 @@ public final class ApiClient {
 
     public RequestHandle getCurrentWeatherByZipCode(
             String zipCode,
+            String countryCode,
             String apiKey,
             final CurrentWeatherRequestHandler handler
     ) {
@@ -402,7 +403,7 @@ public final class ApiClient {
          */
 
         final RequestParams parameters = new RequestParams();
-        parameters.put("zip", zipCode);
+        parameters.put("zip", String.format("%s,%s", zipCode, countryCode));
         parameters.put("appid", apiKey);
 
         /**
@@ -856,6 +857,7 @@ public final class ApiClient {
 
     public RequestHandle getFiveDayForecastByZipCode(
             String zipCode,
+            String countryCode,
             String apiKey,
             final ForecastRequestHandler handler
     ) {
@@ -876,7 +878,7 @@ public final class ApiClient {
          */
 
         final RequestParams parameters = new RequestParams();
-        parameters.put("zip", zipCode);
+        parameters.put("zip", String.format("%s,%s", zipCode, countryCode));
         parameters.put("appid", apiKey);
 
         /**

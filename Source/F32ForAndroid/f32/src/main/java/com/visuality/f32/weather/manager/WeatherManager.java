@@ -156,6 +156,7 @@ public final class WeatherManager {
 
     public void getCurrentWeatherByZipCode(
             String zipCode,
+            String countryCode,
             final CurrentWeatherHandler handler
     ) {
         /**
@@ -191,6 +192,7 @@ public final class WeatherManager {
 
         apiClient.getCurrentWeatherByZipCode(
                 zipCode,
+                countryCode,
                 this.apiKey,
                 requestHandler
         );
@@ -329,6 +331,7 @@ public final class WeatherManager {
 
     public void getFiveDayForecastByZipCode(
             String zipCode,
+            String countryCode,
             final ForecastHandler handler
     ) {
         /**
@@ -365,6 +368,7 @@ public final class WeatherManager {
 
         apiClient.getFiveDayForecastByZipCode(
                 zipCode,
+                countryCode,
                 this.apiKey,
                 requestHandler
         );
