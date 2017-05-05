@@ -87,6 +87,10 @@ public class TemperatureFormatter {
                 return "C";
             case FAHRENHEIT:
                 return "F";
+            case REAUMUR:
+                return "Re";
+            case RANKINE:
+                return "Ra";
             default:
                 return "";
         }

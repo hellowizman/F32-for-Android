@@ -7,5 +7,7 @@ package com.visuality.f32.temperature;
 public enum TemperatureUnit {
     KELVIN,
     CELCIUS,
-    FAHRENHEIT
+    FAHRENHEIT,
+    REAUMUR,
+    RANKINE
 }

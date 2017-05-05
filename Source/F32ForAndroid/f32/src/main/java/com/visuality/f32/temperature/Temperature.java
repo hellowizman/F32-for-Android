@@ -39,6 +39,10 @@ public class Temperature {
                         return this.value - 273.15;
                     case FAHRENHEIT:
                         return (this.value * 1.8) - 459.67;
+                    case REAUMUR:
+                        return (this.value - 273.15) * 0.8;
+                    case RANKINE:
+                        return this.value * 1.8;
                     default:
                         return this.value;
                 }
@@ -50,6 +54,10 @@ public class Temperature {
                         return this.value;
                     case FAHRENHEIT:
                         return (this.value * 1.8) + 32.0;
+                    case REAUMUR:
+                        return this.value * 0.8;
+                    case RANKINE:
+                        return (this.value * 1.8) + 32.0 + 459.67;
                     default:
                         return this.value;
                 }
@@ -60,6 +68,40 @@ public class Temperature {
                     case CELCIUS:
                         return (this.value - 32.0) / 1.8;
                     case FAHRENHEIT:
+                        return this.value;
+                    case REAUMUR:
+                        return (this.value - 32.0) / 2.25;
+                    case RANKINE:
+                        return this.value + 459.67;
+                    default:
+                        return this.value;
+                }
+            case REAUMUR:
+                switch (targetUnit) {
+                    case KELVIN:
+                        return (this.value * 1.25) + 273.15;
+                    case CELCIUS:
+                        return this.value * 1.25;
+                    case FAHRENHEIT:
+                        return (this.value * 2.25) + 32.0;
+                    case REAUMUR:
+                        return this.value;
+                    case RANKINE:
+                        return (this.value * 2.25) + 32.0 + 459.67;
+                    default:
+                        return this.value;
+                }
+            case RANKINE:
+                switch (targetUnit) {
+                    case KELVIN:
+                        return this.value / 1.8;
+                    case CELCIUS:
+                        return (this.value - 32.0 - 459.67) / 1.8;
+                    case FAHRENHEIT:
+                        return this.value - 459.67;
+                    case REAUMUR:
+                        return (this.value - 32.0 - 459.67) / 2.25;
+                    case RANKINE:
                         return this.value;
                     default:
                         return this.value;
