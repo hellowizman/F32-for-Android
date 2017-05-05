@@ -14,6 +14,11 @@
 
 `F32` is a library for temperature conversions and weather forecasts. It includes wrapper for [OpenWeatherMap API](http://openweathermap.org/api) and provides developer with super-simple way to obtain weather information by geographic coordinates, city name and ZIP code.
 
+Components included in `F32`:
+- [OpenWeatherMap API](http://openweathermap.org) wrapper ([current weather](#current-weather) and [forecast](#forecast))
+- [Temperature converter](#temperature-conversions)
+- [Temperature formatter](#temperature-formatter)
+
 ## How To Get Started
 
 - Copy content from `Source/F32ForAndroid/f32/src/main/java/com/visuality/f32` folder to your project.
@@ -428,6 +433,13 @@ double temperatureInFahrenheit = temperature.getValue(TemperatureUnit.FAHRENHEIT
 double temperatureInCelcius = temperature.getValue(TemperatureUnit.CELCIUS); // 0.0 degrees
 double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 273.15 degrees
 ```
+
+Full list of supported temperature scales:
+- Kelvin
+- Celcius
+- Fahrenheit
+- Reaumur
+- Rankine
 
 ### Temperature Formatter
 
