@@ -29,6 +29,12 @@ public class Weather extends BaseEntity {
         LightInformation lightInformation = LightInformation.fromJson(jsonObject);
 
         /**
+         * Obtain atmospheric information.
+         */
+
+        AtmosphericInformation atmosphericInformation = AtmosphericInformation.fromJson(jsonObject);
+
+        /**
          * Obtain wind information.
          */
 
@@ -71,6 +77,7 @@ public class Weather extends BaseEntity {
                 .setNavigation(navigationInformation)
                 .setTemperature(temperatureInformation)
                 .setLight(lightInformation)
+                .setAtmosphere(atmosphericInformation)
                 .setWind(windInformation)
                 .setCloudiness(cloudinessInformation)
                 .setRain(rainInformation)
@@ -101,6 +108,12 @@ public class Weather extends BaseEntity {
 
     public LightInformation getLight() {
         return light;
+    }
+
+    private AtmosphericInformation atmosphere;
+
+    public AtmosphericInformation getAtmosphere() {
+        return atmosphere;
     }
 
     private WindInformation wind;
@@ -137,6 +150,7 @@ public class Weather extends BaseEntity {
             NavigationInformation navigation,
             TemperatureInformation temperature,
             LightInformation light,
+            AtmosphericInformation atmosphere,
             WindInformation wind,
             CloudinessInformation cloudiness,
             RainInformation rain,
@@ -162,6 +176,12 @@ public class Weather extends BaseEntity {
          */
 
         this.light = light;
+
+        /**
+         * Initialize atmospheric information.
+         */
+
+        this.atmosphere = atmosphere;
 
         /**
          * Initialize wind information.
@@ -217,6 +237,13 @@ public class Weather extends BaseEntity {
             return this;
         }
 
+        private AtmosphericInformation atmosphere;
+
+        public Builder setAtmosphere(AtmosphericInformation atmosphere) {
+            this.atmosphere = atmosphere;
+            return this;
+        }
+
         private WindInformation wind;
 
         public Builder setWind(WindInformation wind) {
@@ -257,6 +284,7 @@ public class Weather extends BaseEntity {
                     this.navigation,
                     this.temperature,
                     this.light,
+                    this.atmosphere,
                     this.wind,
                     this.cloudiness,
                     this.rain,
