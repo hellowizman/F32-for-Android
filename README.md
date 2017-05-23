@@ -240,6 +240,18 @@ long sunriseTimestamp = weather.getLight().getSunriseTimestamp();
 long sunsetTimestamp = weather.getLight().getSunsetTimestamp();
 
 /*
+ * Pressure.
+ */
+
+long pressure = weather.getAtmosphere().getPressure();
+
+/*
+ * Humidity.
+ */
+
+int humidityPercentage = weather.getAtmosphere().getHumidity();
+
+/*
  * Wind speed in meters per second.
  */
 
