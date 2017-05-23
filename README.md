@@ -25,7 +25,7 @@ Components included in `F32`:
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.1'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.2'`
 
 ## Requirements
 
