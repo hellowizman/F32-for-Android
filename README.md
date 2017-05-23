@@ -249,7 +249,7 @@ long pressure = weather.getAtmosphere().getPressure();
  * Humidity.
  */
 
-int humidityPercentage = weather.getAtmosphere().getHumidity();
+int humidityPercentage = weather.getAtmosphere().getHumidityPercentage();
 
 /*
  * Wind speed in meters per second.
