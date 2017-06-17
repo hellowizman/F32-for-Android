@@ -135,4 +135,59 @@ public class TemperatureFormatter {
 
         return resultString;
     }
+
+    /**
+     * Returns string representation of temperature unit.
+     * @param unit Temperature unit.
+     * @param degreeSymbol The symbol of degree.
+     *                     You can use any custom string here.
+     * @return String representation of temperature unit.
+     */
+    public String getTemperatureUnitSymbol(
+            TemperatureUnit unit,
+            String degreeSymbol
+    ) {
+        /**
+         * Obtain unit string.
+         */
+
+        String unitString;
+
+        switch (unit) {
+            case KELVIN:
+                unitString = "K";
+                break;
+            case CELCIUS:
+                unitString = "C";
+                break;
+            case FAHRENHEIT:
+                unitString = "F";
+                break;
+            case REAUMUR:
+                unitString = "Re";
+                break;
+            case RANKINE:
+                unitString = "Ra";
+                break;
+            default:
+                unitString = "";
+                break;
+        }
+
+        /**
+         * Obtain result string.
+         */
+
+        final String resultString = String.format(
+                "%s%s",
+                degreeSymbol,
+                unitString
+        );
+
+        /**
+         * Return result string.
+         */
+
+        return resultString;
+    }
 }
