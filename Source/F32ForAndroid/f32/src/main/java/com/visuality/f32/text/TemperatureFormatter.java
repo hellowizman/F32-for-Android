@@ -22,7 +22,11 @@ public class TemperatureFormatter {
      * @param unit Temperature unit (Kelvin, Celcius, Fahrenheit, etc).
      * @return String containing formatted temperature.
      */
-    public String getStringFromTemperature(Locale locale, double temperature, TemperatureUnit unit) {
+    public String getStringFromTemperature(
+            Locale locale,
+            double temperature,
+            TemperatureUnit unit
+    ) {
         /**
          * Obtain temperature value string.
          */
@@ -31,16 +35,13 @@ public class TemperatureFormatter {
         final String temperatureValueString = temperatureFormat.format(temperature);
 
         /**
-         * Obtain degree symbol.
-         */
-
-        final String degreeSymbol = "°";
-
-        /**
          * Obtain temperature unit symbol.
          */
 
-        final String temperatureUnitSymbol = getTemperatureUnitSymbol(unit);
+        final String temperatureUnitSymbol = getTemperatureUnitSymbol(
+                unit,
+                true
+        );
 
         /**
          * Return result.
@@ -48,9 +49,8 @@ public class TemperatureFormatter {
 
         return String.format(
                 locale,
-                "%s %s%s",
+                "%s %s",
                 temperatureValueString,
-                degreeSymbol,
                 temperatureUnitSymbol
         );
     }
@@ -61,7 +61,10 @@ public class TemperatureFormatter {
      * @param unit Temperature unit (Kelvin, Celcius, Fahrenheit, etc).
      * @return String containing formatted temperature.
      */
-    public String getStringFromTemperature(double temperature, TemperatureUnit unit) {
+    public String getStringFromTemperature(
+            double temperature,
+            TemperatureUnit unit
+    ) {
         /**
          * Obtain default locale.
          */
@@ -79,20 +82,57 @@ public class TemperatureFormatter {
         );
     }
 
-    private String getTemperatureUnitSymbol(TemperatureUnit unit) {
+    /**
+     * Returns string representation of temperature unit.
+     * @param unit Temperature unit.
+     * @param includeDegreeSymbol If `true`, degree symbol will be placed before temperature unit.
+     * @return String representation of temperature unit.
+     */
+    public String getTemperatureUnitSymbol(
+            TemperatureUnit unit,
+            boolean includeDegreeSymbol
+    ) {
+        /**
+         * Obtain unit string.
+         */
+
+        String unitString;
+
         switch (unit) {
             case KELVIN:
-                return "K";
+                unitString = "K";
+                break;
             case CELCIUS:
-                return "C";
+                unitString = "C";
+                break;
             case FAHRENHEIT:
-                return "F";
+                unitString = "F";
+                break;
             case REAUMUR:
-                return "Re";
+                unitString = "Re";
+                break;
             case RANKINE:
-                return "Ra";
+                unitString = "Ra";
+                break;
             default:
-                return "";
+                unitString = "";
+                break;
         }
+
+        /**
+         * Obtain result string.
+         */
+
+        final String resultString = String.format(
+                "%s%s",
+                includeDegreeSymbol ? "°" : "",
+                unitString
+        );
+
+        /**
+         * Return result string.
+         */
+
+        return resultString;
     }
 }
