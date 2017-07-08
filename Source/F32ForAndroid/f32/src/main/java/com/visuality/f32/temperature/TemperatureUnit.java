@@ -5,9 +5,11 @@ package com.visuality.f32.temperature;
  */
 
 public enum TemperatureUnit {
-    KELVIN,
     CELCIUS,
+    DELISLE,
     FAHRENHEIT,
+    KELVIN,
+    RANKINE,
     REAUMUR,
-    RANKINE
+    ROMER
 }
