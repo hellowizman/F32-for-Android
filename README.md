@@ -25,7 +25,7 @@ Components included in `F32`:
 
 or
 
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.2.1'`
+- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.3'`
 
 ## Requirements
 
@@ -437,7 +437,7 @@ long latestAvailableTimestamp = forecast.getLatestTimestamp();
 
 ### Temperature Conversions
 
-You can easily convert temperature from Kelvin to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
+You can easily convert temperature from to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
 
 ```java
 Temperature temperature = new Temperature(32, TemperatureUnit.FAHRENHEIT);
@@ -447,11 +447,13 @@ double temperatureInKelvin = temperature.getValue(TemperatureUnit.KELVIN); // 27
 ```
 
 Full list of supported temperature scales:
-- Kelvin
 - Celcius
+- Delisle
 - Fahrenheit
-- Reaumur
+- Kelvin
 - Rankine
+- Réaumur
+- Rømer
 
 ### Temperature Formatter
 
