@@ -64,7 +64,7 @@ public class Temperature {
             case FAHRENHEIT:
                 switch (targetUnit) {
                     case KELVIN:
-                        return (this.value + 459.67) * 1.8;
+                        return (this.value + 459.67) / 1.8;
                     case CELCIUS:
                         return (this.value - 32.0) / 1.8;
                     case FAHRENHEIT:
