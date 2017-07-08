@@ -99,20 +99,26 @@ public class TemperatureFormatter {
         String unitString;
 
         switch (unit) {
-            case KELVIN:
-                unitString = "K";
-                break;
             case CELCIUS:
                 unitString = "C";
+                break;
+            case DELISLE:
+                unitString = "D";
                 break;
             case FAHRENHEIT:
                 unitString = "F";
                 break;
-            case REAUMUR:
-                unitString = "Re";
+            case KELVIN:
+                unitString = "K";
                 break;
             case RANKINE:
                 unitString = "Ra";
+                break;
+            case REAUMUR:
+                unitString = "Re";
+                break;
+            case ROMER:
+                unitString = "Ro";
                 break;
             default:
                 unitString = "";
