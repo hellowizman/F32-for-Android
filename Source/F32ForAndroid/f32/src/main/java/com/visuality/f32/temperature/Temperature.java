@@ -29,6 +29,11 @@ public class Temperature {
         this.unit = unit;
     }
 
+    /**
+     * Returns temperature value in target scale.
+     * @param targetUnit Required temperature scale.
+     * @return Tempevalue value in target scale.
+     */
     public double getValue(TemperatureUnit targetUnit) {
         switch (this.unit) {
             case CELCIUS:
@@ -167,5 +172,15 @@ public class Temperature {
             default:
                 return this.value;
         }
+    }
+
+    /**
+     * Returns difference between current temperature and specified one.
+     * @param temperature The temperature to find difference with.
+     * @param unit Temperature scale.
+     * @return Difference between current temperature and specified one.
+     */
+    public double getDifference(Temperature temperature, TemperatureUnit unit) {
+        return this.getValue(unit) - temperature.getValue(unit);
     }
 }
