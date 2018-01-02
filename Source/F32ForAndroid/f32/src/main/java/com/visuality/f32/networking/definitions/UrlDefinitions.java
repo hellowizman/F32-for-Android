@@ -6,7 +6,7 @@ package com.visuality.f32.networking.definitions;
 
 public final class UrlDefinitions {
 
-    public static String BASE_URL = "http://api.openweathermap.org/data/2.5";
+    public static String BASE_URL = "https://api.openweathermap.org/data/2.5";
 
     public static String RELATIVE_PATH_TO_CURRENT_WEATHER = "weather";
 
