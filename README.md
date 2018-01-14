@@ -240,7 +240,7 @@ long sunriseTimestamp = weather.getLight().getSunriseTimestamp();
 long sunsetTimestamp = weather.getLight().getSunsetTimestamp();
 
 /*
- * Pressure.
+ * Pressure in hectopascals.
  */
 
 long pressure = weather.getAtmosphere().getPressure();
