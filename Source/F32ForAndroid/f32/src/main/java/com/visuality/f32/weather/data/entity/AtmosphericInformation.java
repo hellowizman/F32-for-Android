@@ -14,13 +14,18 @@ public class AtmosphericInformation extends BaseEntity {
          * Obtain pressure.
          */
 
-        long pressure = 0;
+        long pressureInHectopascals = 0;
 
         try {
-            pressure = jsonObject.getJSONObject("main")
+            pressureInHectopascals = jsonObject.getJSONObject("main")
                     .getLong("pressure");
         } catch (JSONException exception) {
         }
+
+        final AtmosphericPressure pressure = new AtmosphericPressure(
+                pressureInHectopascals,
+                AtmosphericPressure.Unit.HECTOPASCAL
+        );
 
         /**
          * Obtain humidity percentage.
@@ -50,9 +55,9 @@ public class AtmosphericInformation extends BaseEntity {
         return resultObject;
     }
 
-    private long pressure;
+    private AtmosphericPressure pressure;
 
-    public long getPressure() {
+    public AtmosphericPressure getPressure() {
         return pressure;
     }
 
@@ -63,7 +68,7 @@ public class AtmosphericInformation extends BaseEntity {
     }
 
     public AtmosphericInformation(
-            long pressure,
+            AtmosphericPressure pressure,
             int humidityPercentage
     ) {
         super();
@@ -87,9 +92,9 @@ public class AtmosphericInformation extends BaseEntity {
 
     public static final class Builder {
 
-        private long pressure;
+        private AtmosphericPressure pressure;
 
-        public Builder setPressure(long pressure) {
+        public Builder setPressure(AtmosphericPressure pressure) {
             this.pressure = pressure;
             return this;
         }
