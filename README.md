@@ -240,10 +240,16 @@ long sunriseTimestamp = weather.getLight().getSunriseTimestamp();
 long sunsetTimestamp = weather.getLight().getSunsetTimestamp();
 
 /*
- * Pressure in hectopascals.
+ * Pressure in hectopascal.
  */
 
-long pressure = weather.getAtmosphere().getPressure();
+double pressureInHectopascal = weather.getAtmosphere().getPressure().getValue(AtmosphericPressure.Unit.HECTOPASCAL);
+
+/*
+ * Pressure in millimeter of Mercury.
+ */
+
+double pressureInMillimeterOfMercury = weather.getAtmosphere().getPressure().getValue(AtmosphericPressure.Unit.MILLIMETER_OF_MERCURY);
 
 /*
  * Humidity.
