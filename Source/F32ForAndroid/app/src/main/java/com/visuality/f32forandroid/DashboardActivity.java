@@ -8,7 +8,7 @@ import com.visuality.f32.weather.manager.WeatherManager;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private static final String API_KEY = "5bc694edded18d31b165727e6fb6be8f";
+    private static final String API_KEY = "1234567890";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
