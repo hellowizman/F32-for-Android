@@ -443,7 +443,7 @@ long latestAvailableTimestamp = forecast.getLatestTimestamp();
 
 ### Temperature Conversions
 
-You can easily convert temperature from to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
+You can easily convert temperature from Kelvin to Celcius, from Celcius to Fahrenheit, etc. Use `Temperature` class for that:
 
 ```java
 Temperature temperature = new Temperature(32, TemperatureUnit.FAHRENHEIT);
