@@ -21,11 +21,7 @@ Components included in `F32`:
 
 ## How To Get Started
 
-- Copy content from `Source/F32ForAndroid/f32/src/main/java/com/visuality/f32` folder to your project.
-
-or
-
-- Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.4'`
+Use gradle dependency: `compile 'com.visuality.f32forandroid:f32:2.4'`
 
 ## Requirements
 
